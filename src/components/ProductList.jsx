@@ -3,9 +3,15 @@ import { data } from "../data";
 
 export const ProductList = ({ allProducts, setAllProducts }) => {
 
-    const onAddProduct = (product) => {
-    setAllProducts([...allProducts, product]);
+  const onAddProduct = (product) => {
+    const productExists = allProducts.find(item => item.id === product.id);
+    if (productExists) {
+      setAllProducts(allProducts.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
+    } else {
+      setAllProducts([...allProducts, { ...product, quantity: 1 }]);
+    }
   };
+
   console.log(allProducts);
 
   return (

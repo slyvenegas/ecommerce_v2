@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 
-export const Header = (allProducts, setAllProducts) => {
-
+export const Header = ({ allProducts, setAllProducts }) => {
   const [active, setActive] = useState(false);
 
   return (
     <header>
       <h1 className="logo-header">Minimal Soft Shop CO</h1>
-
       <div className="container-icon">
         <div className="container-cart-icon" onClick={() => setActive(!active)}>
           <svg
@@ -37,7 +35,7 @@ export const Header = (allProducts, setAllProducts) => {
                     <div className="cart-product" key={product.id}>
                     <div className="info-cart-product">
                       <span className="cantidad-producto-carrito">
-                        {product.quantity}
+                        {product.quantity || 1}
                       </span>
                       <p className="titulo-producto-carrito">
                         {product.nameProduct}
@@ -62,9 +60,7 @@ export const Header = (allProducts, setAllProducts) => {
                     </svg>
                   </div>
                 ))}
-
               </div>
-
               <div className="cart-total hidden">
                 <h3>Total:</h3>
                 <span className="total-pagar">$200</span>
