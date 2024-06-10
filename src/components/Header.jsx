@@ -67,7 +67,7 @@ export const Header = ({ allProducts, setAllProducts }) => {
               </div>
             </>
           ) : (
-            <p className="cart-empty">VACÍO - añade algo</p>
+            <p className="cart-empty">Añade algo</p>
           )}
         </div>
       </div>

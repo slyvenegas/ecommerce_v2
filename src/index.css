@@ -1,4 +1,5 @@
-/* Globales */
+
+
 *::after,
 *::before,
 *{
@@ -29,7 +30,6 @@ img{
     max-width: 100%;
 }
 
-/* Header */
 header{
     display: flex;
     justify-content: space-between;
@@ -69,7 +69,7 @@ header{
     top: 50px;
     right: 0;
 
-    background-color: #fff;
+    background-color: #909090;
     width: 400px;
     z-index: 1;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
@@ -94,23 +94,23 @@ header{
 }
 
 .titulo-producto-carrito{
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .precio-producto-carrito{
     font-weight: 700;
-    font-size: 20px;
+    font-size: 15px;
     margin-left: 10px;
 }
 
 .cantidad-producto-carrito{
     font-weight: 400;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .icon-close{
-    width: 25px;
-    height: 25px;
+    width: 12px;
+    height: 12px;
 }
 
 .icon-close:hover{
@@ -143,7 +143,6 @@ header{
 
 
 
-/* Main */
 .container-items{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -190,9 +189,9 @@ header{
 }
 
 .info-product button {
-  border: linen;
+  border: rgb(158, 89, 20);
   background: none;
-  background-color: #dddddd;
+  background-color: #efefef;
   color: #988a8a;
   padding: 2px 8px;
   cursor: pointer;
@@ -210,7 +209,7 @@ header{
 
 h2 {
   font-size: 12px;
-  color: #5a5a5a;
+  color: #bbb7b7;
 }
 
 .page-container {
