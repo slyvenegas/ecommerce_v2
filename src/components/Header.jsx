@@ -1,7 +1,32 @@
 import React, { useState } from "react";
 
-export const Header = ({ allProducts, setAllProducts }) => {
+export const Header = ({
+  allProducts,
+  setAllProducts,
+  total,
+  countProducts,
+  setTotal,
+  setCountProducts
+}) => {
   const [active, setActive] = useState(false);
+
+  const onDeleteProduct = product => {
+    const results = allProducts.filter(
+      item => item.id !== product.id
+    );
+
+
+    setTotal (total - product.price * product.quantity);
+    setCountProducts(countProducts - product.quantity);
+    setAllProducts(results)
+
+  };
+
+  const onCleanCart = () => {
+    setAllProducts([]);
+    setTotal(0);
+    setCountProducts(0);
+  }
 
   return (
     <header>
@@ -23,16 +48,18 @@ export const Header = ({ allProducts, setAllProducts }) => {
             />
           </svg>
           <div className="count-products">
-            <span id="contador-productos">0</span>
+            <span id="contador-productos">{countProducts}</span>
           </div>
         </div>
 
-        <div className={`container-cart-products ${active ? '' : "hidden-cart"}`}>
+        <div
+          className={`container-cart-products ${active ? "" : "hidden-cart"}`}
+        >
           {allProducts.length ? (
             <>
               <div className="row-product">
-                {allProducts.map(product => (
-                    <div className="cart-product" key={product.id}>
+                {allProducts.map((product) => (
+                  <div className="cart-product" key={product.id}>
                     <div className="info-cart-product">
                       <span className="cantidad-producto-carrito">
                         {product.quantity || 1}
@@ -51,6 +78,7 @@ export const Header = ({ allProducts, setAllProducts }) => {
                       strokeWidth={1.5}
                       stroke="currentColor"
                       className="icon-close"
+                      onClick={() => onDeleteProduct(product)}
                     >
                       <path
                         strokeLinecap="round"
@@ -61,10 +89,12 @@ export const Header = ({ allProducts, setAllProducts }) => {
                   </div>
                 ))}
               </div>
-              <div className="cart-total hidden">
+              <div className="cart-total ">
                 <h3>Total:</h3>
-                <span className="total-pagar">$200</span>
+                <span className="total-pagar">${total}</span>
               </div>
+
+              <button className="btn-clear-all" onClick={onCleanCart}>Vaciar</button>
             </>
           ) : (
             <p className="cart-empty">Añade algo</p>

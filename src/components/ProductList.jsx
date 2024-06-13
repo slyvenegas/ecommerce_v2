@@ -1,13 +1,19 @@
 import React from "react";
 import { data } from "../data";
 
-export const ProductList = ({ allProducts, setAllProducts }) => {
+export const ProductList = ({ allProducts, setAllProducts, countProducts, setCountProducts, total, setTotal }) => {
 
   const onAddProduct = (product) => {
     const productExists = allProducts.find(item => item.id === product.id);
     if (productExists) {
+
+      setTotal (total + product.price)
+      setCountProducts(countProducts + product.quantity)
       setAllProducts(allProducts.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
     } else {
+
+      setTotal (total + product.price  * product.quantity);
+      setCountProducts(countProducts + product.quantity);
       setAllProducts([...allProducts, { ...product, quantity: 1 }]);
     }
   };
