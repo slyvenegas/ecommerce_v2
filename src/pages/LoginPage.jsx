@@ -59,6 +59,7 @@ const LoginPage = () => {
           <button type="submit">Ingresar</button>
         </form>
         <button onClick={handleRegisterRedirect}>Registrarse</button>
+        <a href="/home"><button type="button">Home (botón temporal)</button></a>
       </div>
     </div>
   );

@@ -42,6 +42,7 @@ const RegisterPage = () => {
           <button type="submit">Registrarse</button>
         </form>
         <p>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
+        <a href="/home"><button type="button">Home( botón temporal)</button></a>
       </div>
     </div>
   );
